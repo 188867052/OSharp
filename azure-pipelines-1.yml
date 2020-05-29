@@ -16,11 +16,6 @@ steps:
   displayName: 'Install Node.js'
 
 - task: CmdLine@2
-  displayName: 'pwd'
-  inputs:
-    script: 'pwd'
-
-- task: CmdLine@2
   displayName: 'ls'
   inputs:
     script: 'ls'
@@ -33,7 +28,7 @@ steps:
 - task: CmdLine@2
   displayName: ' cd to ng-alain8'
   inputs:
-    script: 'cd samples\web\ui\ng-alain8'
+    script: 'cd samples/web/ui/ng-alain8'
 
 - task: CmdLine@2
   displayName: 'npm install'
