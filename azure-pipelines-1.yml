@@ -44,7 +44,7 @@ steps:
   displayName: Docker build
   inputs:
     command: 'build'
-    Dockerfile: '**/Dockerfile'
+    Dockerfile: '**/DockerfileWeb'
     arguments: '-t 542153354/web:v1.0'
 
 - task: CmdLine@2
