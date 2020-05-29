@@ -10,10 +10,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: CmdLine@2
-  inputs:
-    script: 'npm install -g @angular/cli'
-
 - task: DotNetCoreCLI@2
   displayName: DotNetCore publish
   inputs:
