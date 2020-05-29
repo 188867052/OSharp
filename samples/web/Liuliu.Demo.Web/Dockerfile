@@ -1,4 +1,4 @@
-﻿FROM microsoft/dotnet:3.1-aspnetcore-runtime AS base
+﻿FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 MAINTAINER LiuliuSoft i66soft@qq.com
 
 WORKDIR /app
