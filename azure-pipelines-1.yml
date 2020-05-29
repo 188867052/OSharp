@@ -16,6 +16,8 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    pwd
+    cd /samples/web/ui/ng-alain8/src/ui/ng-alain/
     npm install -g @angular/cli
     npm install
     ng build --prod
