@@ -1,3 +1,3 @@
 FROM  nginx:latest
 Run ls
-COPY ./dist/ng-alain8 /usr/share/nginx/html
+COPY . .

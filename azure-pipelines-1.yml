@@ -35,11 +35,6 @@ steps:
   inputs:
     script: 'npm install'
 
-- task: CmdLine@2
-  displayName: 'npm run build'
-  inputs:
-    script: 'npm run build'
-
 - task: DockerInstaller@0
   displayName: Docker Installer
   inputs:
