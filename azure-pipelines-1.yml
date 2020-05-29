@@ -36,9 +36,9 @@ steps:
     script: 'npm install'
 
 - task: CmdLine@2
-  displayName: 'npm start'
+  displayName: 'npm run build'
   inputs:
-    script: 'nohup npm start &'
+    script: 'npm run build'
 
 - task: DockerInstaller@0
   displayName: Docker Installer
