@@ -21,6 +21,11 @@ steps:
     script: 'pwd'
 
 - task: CmdLine@2
+  displayName: 'ls'
+  inputs:
+    script: 'ls'
+
+- task: CmdLine@2
   displayName: 'npm install -g @angular/cli'
   inputs:
     script: 'npm install -g @angular/cli'
@@ -29,4 +34,9 @@ steps:
   displayName: 'npm install'
   inputs:
     script: 'npm install'
+
+- task: CmdLine@2
+  displayName: 'npm start'
+  inputs:
+    script: 'npm start'
 
