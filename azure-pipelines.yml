@@ -1,0 +1,77 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: DotNetCore publish
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    arguments: '-c Release'
+    zipAfterPublish: false
+- task: DockerInstaller@0
+  displayName: Docker Installer
+  inputs:
+    dockerVersion: '17.09.0-ce'
+
+- task: Docker@2
+  displayName: Docker build
+  inputs:
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
+    arguments: '-t 542153354/api:v1.0'
+
+- task: CmdLine@2
+  displayName: Docker login
+  inputs:
+    script: 'docker login -u 542153354 -p $(DockerPassword)'
+    
+- task: CmdLine@2
+  displayName: Docker images
+  inputs:
+    script: 'docker images'
+
+- task: CmdLine@2
+  displayName: Docker ps
+  inputs:
+    script: 'docker ps'
+
+- task: CmdLine@2
+  displayName: Docker push
+  inputs:
+    script: 'docker push 542153354/api:v1.0'
+
+- task: CmdLine@2
+  displayName: install sshpass
+  inputs:
+    script: |
+      sudo apt-get install sshpass
+
+- task: CmdLine@2
+  displayName: pwd
+  inputs:
+    script: |
+      pwd
+      ls
+      dir
+
+- task: CmdLine@2
+  displayName: deploy api to TencentCloud
+  inputs:
+    script: |
+      sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP) bash -s < deploy.sh
+
+- task: CmdLine@2
+  displayName: deploy api to AliCloud
+  inputs:
+    script: |
+      sshpass -p "$(AliCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t root@$(AliCloudIP) bash -s < deploy.sh
+
