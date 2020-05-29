@@ -10,6 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
 - task: DotNetCoreCLI@2
   displayName: DotNetCore publish
   inputs:
@@ -17,6 +18,7 @@ steps:
     publishWebProjects: true
     arguments: '-c Release'
     zipAfterPublish: false
+
 - task: DockerInstaller@0
   displayName: Docker Installer
   inputs:

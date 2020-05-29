@@ -35,8 +35,13 @@ steps:
   inputs:
     script: 'npm install'
 
-- task: CmdLine@2
-  displayName: 'npm start'
+- task: DockerInstaller@0
+  displayName: Docker Installer
   inputs:
-    script: 'npm start'
+    dockerVersion: '17.09.0-ce'
+
+- task: CmdLine@2
+  displayName: 'docker build'
+  inputs:
+    script: 'docker build -t angular-demo .'
 
