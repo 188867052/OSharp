@@ -20,4 +20,4 @@ COPY . /usr/src/app
 
 # start app 根据实际情况修改配置
 # CMD ng serve --host 0.0.0.0
-CMD ng serve --port=4201 --proxy-config=proxy.conf.json --configuration=local --host 0.0.0.0
+CMD ng serve --port=4201 --proxy-config=proxy.conf.json --configuration=47.105.214.235 --host 0.0.0.0
