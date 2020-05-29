@@ -1,3 +1,4 @@
-FROM  nginx:latest
+FROM  node:latest
 Run ls
 COPY . .
+Run ls
