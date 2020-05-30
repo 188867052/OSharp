@@ -168,7 +168,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 return obj as T;
             }
 
-            return default(T);
+            return default;
         }
 
         #endregion

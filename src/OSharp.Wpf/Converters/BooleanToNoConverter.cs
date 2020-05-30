@@ -31,9 +31,9 @@ namespace OSharp.Wpf.Converters
         /// <param name="culture">要用在转换器中的区域性。</param>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is bool)
+            if (value is bool boolean)
             {
-                return !(bool)value;
+                return !boolean;
             }
             return false;
         }
@@ -50,9 +50,9 @@ namespace OSharp.Wpf.Converters
         /// <param name="culture">要用在转换器中的区域性。</param>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is bool)
+            if (value is bool boolean)
             {
-                return !(bool)value;
+                return !boolean;
             }
             return false;
         }

@@ -66,7 +66,7 @@ namespace OSharp.Http
             HttpResponseMessage response = await client.PostAsync(url, data);
             if (!response.IsSuccessStatusCode)
             {
-                return default(TResult);
+                return default;
             }
             string json = await response.Content.ReadAsStringAsync();
             if (typeof(TResult) == typeof(string))

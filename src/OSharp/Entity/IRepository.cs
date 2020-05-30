@@ -125,7 +125,7 @@ namespace OSharp.Entity
         /// <param name="predicate">查询条件谓语表达式</param>
         /// <param name="id">编辑的实体标识</param>
         /// <returns>是否存在</returns>
-        bool CheckExists(Expression<Func<TEntity, bool>> predicate, TKey id = default(TKey));
+        bool CheckExists(Expression<Func<TEntity, bool>> predicate, TKey id = default);
 
         /// <summary>
         /// 查找指定主键的实体
@@ -301,7 +301,7 @@ namespace OSharp.Entity
         /// <param name="predicate">查询条件谓语表达式</param>
         /// <param name="id">编辑的实体标识</param>
         /// <returns>是否存在</returns>
-        Task<bool> CheckExistsAsync(Expression<Func<TEntity, bool>> predicate, TKey id = default(TKey));
+        Task<bool> CheckExistsAsync(Expression<Func<TEntity, bool>> predicate, TKey id = default);
 
         /// <summary>
         /// 异步查找指定主键的实体

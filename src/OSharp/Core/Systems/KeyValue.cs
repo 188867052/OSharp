@@ -104,7 +104,7 @@ namespace OSharp.Core.Systems
             object value = Value;
             if (Equals(value, default(T)))
             {
-                return default(T);
+                return default;
             }
             if (value is T)
             {

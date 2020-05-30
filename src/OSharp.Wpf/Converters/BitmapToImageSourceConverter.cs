@@ -33,21 +33,18 @@ namespace OSharp.Wpf.Converters
         /// <param name="culture">要用在转换器中的区域性。</param>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Bitmap bmp = value as Bitmap;
-            if (bmp == null)
+            if (!(value is Bitmap bmp))
             {
                 return null;
             }
             byte[] bytes = bmp.ToBytes();
-            using (MemoryStream ms = new MemoryStream(bytes, false))
-            {
-                BitmapImage source = new BitmapImage();
-                source.BeginInit();
-                source.StreamSource = ms;
-                source.CacheOption = BitmapCacheOption.OnLoad;
-                source.EndInit();
-                return source;
-            }
+            using MemoryStream ms = new MemoryStream(bytes, false);
+            BitmapImage source = new BitmapImage();
+            source.BeginInit();
+            source.StreamSource = ms;
+            source.CacheOption = BitmapCacheOption.OnLoad;
+            source.EndInit();
+            return source;
         }
 
         /// <summary>

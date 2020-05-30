@@ -77,13 +77,11 @@ namespace OSharp.AspNetCore
         public string GetImageString(Image image, string id)
         {
             Check.NotNull(image, nameof(image));
-            using (MemoryStream ms = new MemoryStream())
-            {
-                image.Save(ms, ImageFormat.Png);
-                byte[] bytes = ms.ToArray();
-                string str = $"data:image/png;base64,{bytes.ToBase64String()}{Separator}{id}";
-                return str.ToBase64String();
-            }
+            using MemoryStream ms = new MemoryStream();
+            image.Save(ms, ImageFormat.Png);
+            byte[] bytes = ms.ToArray();
+            string str = $"data:image/png;base64,{bytes.ToBase64String()}{Separator}{id}";
+            return str.ToBase64String();
         }
     }
 }

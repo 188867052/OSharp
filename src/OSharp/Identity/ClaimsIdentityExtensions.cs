@@ -57,12 +57,12 @@ namespace OSharp.Identity
             Check.NotNull(identity, nameof(identity));
             if (!(identity is ClaimsIdentity claimsIdentity))
             {
-                return default(T);
+                return default;
             }
             string value = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (value == null)
             {
-                return default(T);
+                return default;
             }
             return value.CastTo<T>();
         }

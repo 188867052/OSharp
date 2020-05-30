@@ -13,14 +13,12 @@ using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-
 using OSharp.Reflection;
-
 
 namespace OSharp.Extensions
 {
     /// <summary>
-    /// 基类型<see cref="Object"/>扩展辅助操作类
+    /// 基类型<see cref="object"/>扩展辅助操作类
     /// </summary>
     public static class ObjectExtensions
     {
@@ -63,7 +61,7 @@ namespace OSharp.Extensions
         {
             if (value == null && default(T) == null)
             {
-                return default(T);
+                return default;
             }
             if (value.GetType() == typeof(T))
             {
@@ -162,19 +160,17 @@ namespace OSharp.Extensions
         {
             if (obj == null)
             {
-                return default(T);
+                return default;
             }
             if (typeof(T).HasAttribute<SerializableAttribute>())
             {
                 throw new NotSupportedException("当前对象未标记特性“{0}”，无法进行DeepClone操作".FormatWith(typeof(SerializableAttribute)));
             }
             BinaryFormatter formatter = new BinaryFormatter();
-            using (MemoryStream ms = new MemoryStream())
-            {
-                formatter.Serialize(ms, obj);
-                ms.Seek(0L, SeekOrigin.Begin);
-                return (T)formatter.Deserialize(ms);
-            }
+            using MemoryStream ms = new MemoryStream();
+            formatter.Serialize(ms, obj);
+            ms.Seek(0L, SeekOrigin.Begin);
+            return (T)formatter.Deserialize(ms);
         }
 
         #endregion

@@ -24,7 +24,7 @@ namespace OSharp.Data
         /// 初始化一个<see cref="OsharpResult{TResultType}"/>类型的新实例
         /// </summary>
         protected OsharpResult()
-            : this(default(TResultType))
+            : this(default)
         { }
 
         /// <summary>
@@ -66,21 +66,21 @@ namespace OSharp.Data
         /// 初始化一个<see cref="OsharpResult{TResultType,TData}"/>类型的新实例
         /// </summary>
         protected OsharpResult()
-            : this(default(TResultType))
+            : this(default)
         { }
 
         /// <summary>
         /// 初始化一个<see cref="OsharpResult{TResultType,TData}"/>类型的新实例
         /// </summary>
         protected OsharpResult(TResultType type)
-            : this(type, null, default(TData))
+            : this(type, null, default)
         { }
 
         /// <summary>
         /// 初始化一个<see cref="OsharpResult{TResultType,TData}"/>类型的新实例
         /// </summary>
         protected OsharpResult(TResultType type, string message)
-            : this(type, message, default(TData))
+            : this(type, message, default)
         { }
 
         /// <summary>

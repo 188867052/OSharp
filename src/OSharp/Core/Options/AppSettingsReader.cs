@@ -68,7 +68,7 @@ namespace OSharp.Core.Options
             var config = _configuration.GetSection(key);
             if (!config.Exists())
             {
-                return default(T);
+                return default;
             }
             config.Bind(instance);
             return instance;

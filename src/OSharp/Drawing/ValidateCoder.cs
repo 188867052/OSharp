@@ -113,15 +113,12 @@ namespace OSharp.Drawing
         {
             length.CheckGreaterThan("length", 0);
 
-            switch (codeType)
+            return codeType switch
             {
-                case ValidateCodeType.Number:
-                    return GetRandomNums(length);
-                case ValidateCodeType.Hanzi:
-                    return GetRandomHanzis(length);
-                default:
-                    return GetRandomNumsAndLetters(length);
-            }
+                ValidateCodeType.Number => GetRandomNums(length),
+                ValidateCodeType.Hanzi => GetRandomHanzis(length),
+                _ => GetRandomNumsAndLetters(length),
+            };
         }
 
         /// <summary>
@@ -240,18 +237,12 @@ namespace OSharp.Drawing
             length.CheckGreaterThan("length", 0);
 
             length = length < 1 ? 1 : length;
-            switch (codeType)
+            code = codeType switch
             {
-                case ValidateCodeType.Number:
-                    code = GetRandomNums(length);
-                    break;
-                case ValidateCodeType.Hanzi:
-                    code = GetRandomHanzis(length);
-                    break;
-                default:
-                    code = GetRandomNumsAndLetters(length);
-                    break;
-            }
+                ValidateCodeType.Number => GetRandomNums(length),
+                ValidateCodeType.Hanzi => GetRandomHanzis(length),
+                _ => GetRandomNumsAndLetters(length),
+            };
             if (code.Length > length)
             {
                 code = code.Substring(0, length);

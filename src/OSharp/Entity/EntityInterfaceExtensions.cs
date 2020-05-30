@@ -57,7 +57,7 @@ namespace OSharp.Entity
                 return entity;
             }
             ICreatedTime entity1 = (ICreatedTime)entity;
-            if (entity1.CreatedTime == default(DateTime))
+            if (entity1.CreatedTime == default)
             {
                 entity1.CreatedTime = DateTime.Now;
             }

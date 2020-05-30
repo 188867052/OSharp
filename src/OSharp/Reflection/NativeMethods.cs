@@ -26,7 +26,7 @@ namespace OSharp.Reflection
         public static extern IntPtr LoadLibrary(string lpFileName);
 
         [DllImport("Kernel32.dll", SetLastError = true)]
-        public static extern Int32 GetLastError();
+        public static extern int GetLastError();
 
         [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
         public static extern bool FreeLibrary(IntPtr hModule);
