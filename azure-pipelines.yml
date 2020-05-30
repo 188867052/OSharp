@@ -11,14 +11,12 @@ pool:
 
 steps:
 
-- task: VSTest@2
+- task: DotNetCoreCLI@2
+  displayName: website-test
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*tests.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+    command: 'test'
+    arguments: 'osharp.sln'
+    testRunTitle: 'website-test'
 
 - task: DotNetCoreCLI@2
   displayName: DotNetCore publish
