@@ -9,7 +9,6 @@
 using System;
 using System.Runtime.Serialization;
 
-
 namespace OSharp.Exceptions
 {
     /// <summary>

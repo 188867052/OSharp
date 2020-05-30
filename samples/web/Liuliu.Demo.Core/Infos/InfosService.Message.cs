@@ -48,11 +48,7 @@ namespace Liuliu.Demo.Infos
                 async (dto, entity) =>
                 {
                     User sender = await UserRepository.GetAsync(dto.SenderId);
-                    if (sender == null)
-                    {
-                        throw new OsharpException($"编号为“{dto.SenderId}”的发件人不存在");
-                    }
-                    entity.Sender = sender;
+                    entity.Sender = sender ?? throw new OsharpException($"编号为“{dto.SenderId}”的发件人不存在");
 
                     if (entity.MessageType == MessageType.System)
                     {

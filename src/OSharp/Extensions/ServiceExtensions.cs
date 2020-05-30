@@ -270,12 +270,10 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         public static void ExecuteScopedWork(this IServiceProvider provider, Action<IServiceProvider> action, bool useHttpScope = true)
         {
-            using (IServiceScope scope = useHttpScope
+            using var scope = useHttpScope
                 ? provider.GetService<IHybridServiceScopeFactory>().CreateScope()
-                : provider.CreateScope())
-            {
-                action(scope.ServiceProvider);
-            }
+                : provider.CreateScope();
+            action(scope.ServiceProvider);
         }
 
         /// <summary>
@@ -286,12 +284,10 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         public static async Task ExecuteScopedWorkAsync(this IServiceProvider provider, Func<IServiceProvider, Task> action, bool useHttpScope = true)
         {
-            using (IServiceScope scope = useHttpScope
+            using var scope = useHttpScope
                 ? provider.GetService<IHybridServiceScopeFactory>().CreateScope()
-                : provider.CreateScope())
-            {
-                await action(scope.ServiceProvider);
-            }
+                : provider.CreateScope();
+            await action(scope.ServiceProvider);
         }
 
         /// <summary>
@@ -302,12 +298,10 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         public static TResult ExecuteScopedWork<TResult>(this IServiceProvider provider, Func<IServiceProvider, TResult> func, bool useHttpScope = true)
         {
-            using (IServiceScope scope = useHttpScope
+            using var scope = useHttpScope
                 ? provider.GetService<IHybridServiceScopeFactory>().CreateScope()
-                : provider.CreateScope())
-            {
-                return func(scope.ServiceProvider);
-            }
+                : provider.CreateScope();
+            return func(scope.ServiceProvider);
         }
 
         /// <summary>
@@ -318,12 +312,10 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         public static async Task<TResult> ExecuteScopedWorkAsync<TResult>(this IServiceProvider provider, Func<IServiceProvider, Task<TResult>> func, bool useHttpScope = true)
         {
-            using (IServiceScope scope = useHttpScope
+            using var scope = useHttpScope
                 ? provider.GetService<IHybridServiceScopeFactory>().CreateScope()
-                : provider.CreateScope())
-            {
-                return await func(scope.ServiceProvider);
-            }
+                : provider.CreateScope();
+            return await func(scope.ServiceProvider);
         }
 
         /// <summary>
