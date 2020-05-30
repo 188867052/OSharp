@@ -17,5 +17,5 @@ then
 	sudo docker rmi  -f $imageId
 fi
 
-sudo docker run -it -d   -v /usr/src/app/node_modules -p 4201:4201  542153354/web:v1.0
+sudo docker run -it -d   -v /usr/src/app/node_modules -p 4201:4201 --restart=always  542153354/web:v1.0
 exit
