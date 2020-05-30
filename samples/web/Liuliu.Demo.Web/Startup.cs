@@ -7,6 +7,7 @@
 //  <last-date>2020-03-26 21:47</last-date>
 // -----------------------------------------------------------------------
 
+using DependencyInjection.Analyzer;
 using Liuliu.Demo.Authorization;
 using Liuliu.Demo.Identity;
 using Liuliu.Demo.Systems;
@@ -42,6 +43,7 @@ namespace Liuliu.Demo.Web
                 .AddPack<DataAuthorizationPack>()
                 .AddPack<SqlServerDefaultDbContextMigrationPack>()
                 .AddPack<AuditPack>();
+            services.AddDependencyInjectionAnalyzer();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
