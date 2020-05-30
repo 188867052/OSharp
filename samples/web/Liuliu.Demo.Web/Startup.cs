@@ -12,6 +12,7 @@ using OSharp.AspNetCore;
 using OSharp.AspNetCore.Routing;
 using OSharp.AutoMapper;
 using OSharp.Log4Net;
+using OSharp.Redis;
 using OSharp.Swagger;
 
 namespace Liuliu.Demo.Web
@@ -26,7 +27,7 @@ namespace Liuliu.Demo.Web
                 .AddPack<AutoMapperPack>()
                 .AddPack<EndpointsPack>()
                 .AddPack<SwaggerPack>()
-                //.AddPack<RedisPack>()
+                .AddPack<RedisPack>()
                 .AddPack<AuthenticationPack>()
                 .AddPack<FunctionAuthorizationPack>()
                 .AddPack<DataAuthorizationPack>()

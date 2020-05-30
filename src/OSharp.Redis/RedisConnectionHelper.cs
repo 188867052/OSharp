@@ -28,7 +28,7 @@ namespace OSharp.Redis
         /// <summary>
         /// 连接到指定服务器
         /// </summary>
-        private static ConnectionMultiplexer Connect(string host)
+        public static ConnectionMultiplexer Connect(string host)
         {
             ConnectionLock.Wait();
             try

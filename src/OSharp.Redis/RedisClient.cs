@@ -1,25 +1,12 @@
-﻿// -----------------------------------------------------------------------
-//  <copyright file="RedisClient.cs" company="OSharp开源团队">
-//      Copyright (c) 2014-2020 OSharp. All rights reserved.
-//  </copyright>
-//  <site>http://www.osharp.org</site>
-//  <last-editor>郭明锋</last-editor>
-//  <last-date>2020-03-26 1:35</last-date>
-// -----------------------------------------------------------------------
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-
 using Newtonsoft.Json;
-
 using OSharp.Core.Options;
 using OSharp.Extensions;
-
 using StackExchange.Redis;
-
 
 namespace OSharp.Redis
 {
@@ -77,8 +64,8 @@ namespace OSharp.Redis
         /// <returns></returns>
         public bool StringSet(List<KeyValuePair<string, string>> keyValues)
         {
-            List<KeyValuePair<RedisKey, RedisValue>> newKeyValues =
-                keyValues.Select(p => new KeyValuePair<RedisKey, RedisValue>(AddKeyPrefix(p.Key), p.Value)).ToList();
+            var newKeyValues = keyValues.Select(p => new KeyValuePair<RedisKey, RedisValue>(AddKeyPrefix(p.Key), p.Value))
+                                        .ToList();
             return Do(db => db.StringSet(newKeyValues.ToArray()));
         }
 
