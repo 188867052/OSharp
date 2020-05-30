@@ -68,7 +68,7 @@ namespace OSharp.Maths
             {
                 int index = (int)(value % (ulong)baseChar.Length);
                 result = baseChar[index] + result;
-                value = value / (ulong)baseChar.Length;
+                value /= (ulong)baseChar.Length;
             }
             return result;
         }
