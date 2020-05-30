@@ -12,7 +12,7 @@ imageId="`sudo docker images | grep "api          v1.0" | awk  '{print $3}'`"
 echo "imageId:$imageId"
 if [ -n "$imageId" ]
 then
-	sudo docker rmi  $imageId
+	sudo docker rmi -f $imageId
 fi
 
 sudo docker pull 542153354/api:v1.0 

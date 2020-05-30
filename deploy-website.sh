@@ -12,9 +12,10 @@ imageId="`sudo docker images | grep "web          v1.0" | awk  '{print $3}'`"
 echo "imageId:$imageId"
 if [ -n "$imageId" ]
 then
-	sudo docker rmi  $imageId
+	sudo docker rmi  -f $imageId
 fi
 
 sudo docker pull 542153354/web:v1.0 
 sudo docker run -it -d   -v /usr/src/app/node_modules -p 4201:4201  542153354/web:v1.0
 exit
+sudo docker rmi  291b0cb240bf 

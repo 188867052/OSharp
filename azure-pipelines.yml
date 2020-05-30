@@ -69,11 +69,11 @@ steps:
   displayName: deploy api to TencentCloud
   inputs:
     script: |
-      sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP) bash -s < deploy.sh
+      sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP) bash -s < deploy-api.sh
 
 - task: CmdLine@2
   displayName: deploy api to AliCloud
   inputs:
     script: |
-      sshpass -p "$(AliCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t root@$(AliCloudIP) bash -s < deploy.sh
+      sshpass -p "$(AliCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t root@$(AliCloudIP) bash -s < deploy-api.sh
 
