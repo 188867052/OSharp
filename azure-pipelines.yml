@@ -58,14 +58,6 @@ steps:
       sudo apt-get install sshpass
 
 - task: CmdLine@2
-  displayName: pwd
-  inputs:
-    script: |
-      pwd
-      ls
-      dir
-
-- task: CmdLine@2
   displayName: deploy api to TencentCloud
   inputs:
     script: |
