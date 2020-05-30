@@ -15,26 +15,6 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- task: CmdLine@2
-  displayName: 'ls'
-  inputs:
-    script: 'ls'
-
-- task: CmdLine@2
-  displayName: 'npm install -g @angular/cli'
-  inputs:
-    script: 'npm install -g @angular/cli'
-    
-- task: CmdLine@2
-  displayName: ' cd to ng-alain8'
-  inputs:
-    script: 'cd samples/web/ui/ng-alain8'
-
-- task: CmdLine@2
-  displayName: 'npm install'
-  inputs:
-    script: 'npm install'
-
 - task: DockerInstaller@0
   displayName: Docker Installer
   inputs:

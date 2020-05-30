@@ -46,7 +46,7 @@ export class HeaderNotifyComponent {
       clearText: '清空待办',
     },
   ];
-  count = 5;
+  count = 6;
   loading = false;
 
   constructor(private msg: NzMessageService, private cdr: ChangeDetectorRef) {}
