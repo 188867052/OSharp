@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo docker pull 542153354/web:v1.0 
+
 containerId="` sudo docker ps | grep "4201->4201" | awk  '{print $1}' `"
 echo "containerId:$containerId"
 if [ -n "$containerId" ]
@@ -15,7 +17,5 @@ then
 	sudo docker rmi  -f $imageId
 fi
 
-sudo docker pull 542153354/web:v1.0 
 sudo docker run -it -d   -v /usr/src/app/node_modules -p 4201:4201  542153354/web:v1.0
 exit
-sudo docker rmi  291b0cb240bf 

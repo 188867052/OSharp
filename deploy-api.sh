@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo docker pull 542153354/api:v1.0 
+
 containerId="` sudo docker ps | grep "8081->80" | awk  '{print $1}' `"
 echo "containerId:$containerId"
 if [ -n "$containerId" ]
@@ -15,7 +17,6 @@ then
 	sudo docker rmi -f $imageId
 fi
 
-sudo docker pull 542153354/api:v1.0 
 sudo docker run -d -p 8081:80 542153354/api:v1.0 /bin/sh 
 
 exit
