@@ -60,6 +60,10 @@ namespace Liuliu.Demo.Web.Controllers
         {
             try
             {
+                var kvp = ValidateCoder.Mock();
+                _verifyCodeService.SetCode(kvp.Key, out string id);
+                return kvp.Value;
+
                 ValidateCoder coder = new ValidateCoder()
                 {
                     RandomColor = true,
