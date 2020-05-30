@@ -42,9 +42,3 @@ steps:
   inputs:
     script: |
       sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP) bash -s < deploy-website.sh
-
-- task: CmdLine@2
-  displayName: deploy to Ali cloud
-  inputs:
-    script: |
-      sshpass -p "$(AliCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t root@$(AliCloudIP) bash -s < deploy-website.sh
