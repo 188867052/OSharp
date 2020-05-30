@@ -1,6 +1,6 @@
 import { Component, OnInit, Injector, ViewChild } from "@angular/core";
 import { STComponentBase } from "@shared/osharp/components/st-component-base";
-import { SFUISchema } from "@delon/form";
+import { SFUISchema, SFSchema } from "@delon/form";
 import { ModalTreeComponent } from "@shared/components/modal-tree/modal-tree.component";
 import { FilterGroup } from "@shared/osharp/osharp.model";
 import { STData, STColumn, ReuseTabService } from "@delon/abc";
@@ -11,7 +11,7 @@ import { FunctionViewComponent } from "@shared/components/function-view/function
 	selector: "app-user",
 	templateUrl: "./user.component.html",
 	styles: []
-})
+}) 
 export class UserComponent extends STComponentBase implements OnInit {
 	constructor(injector: Injector) {
 		super(injector);
@@ -37,7 +37,7 @@ export class UserComponent extends STComponentBase implements OnInit {
 							{ text: "权限", icon: "safety", acl: "Root.Admin.Identity.User.SetModules", click: (row) => this.module(row) },
 							{ text: "删除", icon: "delete", type: "del", acl: "Root.Admin.Identity.User.Delete", iif: (row) => row.Deletable, click: (row) => this.delete(row) },
 							{ text: "查看功能", icon: "security-scan", acl: "Root.Admin.Auth.UserFunction", click: (row) => this.viewFunction(row) }
-						]
+						] 
 					}
 				]
 			},
@@ -55,13 +55,21 @@ export class UserComponent extends STComponentBase implements OnInit {
 			{ title: "锁时间", index: "LockoutEnd", sort: true, editable: true, type: "date", filterable: true },
 			{ title: "注册时间", index: "CreatedTime", sort: true, type: "date", filterable: true }
 		];
-	}
+  }
+
+  protected GetSFSchema(): SFSchema {
+    let schema: SFSchema = {
+      properties: this.ColumnsToSchemas(this.columns),
+      required: ['UserName','NickName', 'Email']
+    };
+    return schema;
+  }
 
 	protected GetSFUISchema(): SFUISchema {
 		let ui: SFUISchema = {
 			"*": { spanLabelFixed: 100, grid: { span: 12 } },
 			$UserName: { grid: { span: 24 } },
-			$LockoutEnd: { grid: { span: 24 } }
+      $LockoutEnd: { grid: { span: 24 } }
 		};
 		return ui;
 	}
