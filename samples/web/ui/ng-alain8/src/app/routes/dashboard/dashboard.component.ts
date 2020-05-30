@@ -15,7 +15,9 @@ export class DashboardComponent implements AfterViewInit {
   pickerRanges = {
     '今天': [moment().toDate(), moment().toDate()],
     '昨天': [moment().subtract(1, 'days').toDate(), moment().subtract(1, 'days').toDate()],
+    '前天': [moment().subtract(2, 'days').toDate(), moment().subtract(2, 'days').toDate()],
     '最近7天': [moment().subtract(6, 'days').toDate(), moment().toDate()],
+    '最近15天': [moment().subtract(14, 'days').toDate(), moment().toDate()],
     '最近30天': [moment().subtract(29, 'days').toDate(), moment().toDate()],
     '本月': [moment().startOf("month").toDate(), moment().endOf("month").toDate()],
     '上月': [moment().subtract(1, "months").startOf("month").toDate(), moment().subtract(1, "months").endOf("month").toDate()],
