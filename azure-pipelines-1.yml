@@ -37,8 +37,8 @@ steps:
   inputs:
     script: 'docker push 542153354/web:v1.0'
 
-- task: CmdLine@2
-  displayName: deploy to Tencent cloud
-  inputs:
-    script: |
-      sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP) bash -s < deploy-website.sh
+# - task: CmdLine@2
+#   displayName: deploy to Tencent cloud
+#   inputs:
+#     script: |
+#       sshpass -p "$(TencentCloudPassword)" ssh -o StrictHostKeyChecking=no -t -t ubuntu@$(TencentCloudIP) bash -s < deploy-website.sh
