@@ -64,17 +64,17 @@ namespace Liuliu.Demo.Web.Controllers
                 _verifyCodeService.SetCode(kvp.Key, out string id);
                 return kvp.Value;
 
-                ValidateCoder coder = new ValidateCoder()
-                {
-                    RandomColor = true,
-                    RandomItalic = true,
-                    RandomLineCount = 7,
-                    RandomPointPercent = 10,
-                    RandomPosition = true
-                };
-                Bitmap bitmap = coder.CreateImage(4, out string code);
-                _verifyCodeService.SetCode(code, out string id);
-                return _verifyCodeService.GetImageString(bitmap, id);
+                //ValidateCoder coder = new ValidateCoder()
+                //{
+                //    RandomColor = true,
+                //    RandomItalic = true,
+                //    RandomLineCount = 7,
+                //    RandomPointPercent = 10,
+                //    RandomPosition = true
+                //};
+                //Bitmap bitmap = coder.CreateImage(4, out string code);
+                //_verifyCodeService.SetCode(code, out string id);
+                //return _verifyCodeService.GetImageString(bitmap, id);
             }
             catch (Exception ex)
             {
