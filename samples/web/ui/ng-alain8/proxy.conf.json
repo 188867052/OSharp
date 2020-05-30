@@ -1,14 +1,14 @@
 {
   "/api": {
-    "target": "http://47.105.214.235:8081",
+    "target": "http://119.45.37.57:8081",
     "secure": false
   },
   "/signin-": {
-    "target": "http://47.105.214.235:8081",
+    "target": "http://119.45.37.57:8081",
     "secure": false
   },
   "/upload-files": {
-    "target": "http://47.105.214.235:8081",
+    "target": "http://119.45.37.57:8081",
     "secure": false
   }
 }
