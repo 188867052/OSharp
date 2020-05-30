@@ -11,12 +11,14 @@ pool:
 
 steps:
 
-- task: DotNetCoreCLI@2
-  displayName: website-test
+- task: VSTest@2
   inputs:
-    command: 'test'
-    arguments: '.\tests\Liuliu.Demo.Core.Tests'
-    testRunTitle: 'website-test'
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*tests.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
 
 - task: DotNetCoreCLI@2
   displayName: DotNetCore publish
