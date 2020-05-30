@@ -1,20 +1,8 @@
-﻿// -----------------------------------------------------------------------
-//  <copyright file="OsharpPack.cs" company="OSharp开源团队">
-//      Copyright (c) 2014-2018 OSharp. All rights reserved.
-//  </copyright>
-//  <site>http://www.osharp.org</site>
-//  <last-editor></last-editor>
-//  <last-date>2018-07-25 12:03</last-date>
-// -----------------------------------------------------------------------
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Microsoft.Extensions.DependencyInjection;
-
 using OSharp.Reflection;
-
 
 namespace OSharp.Core.Packs
 {
@@ -68,21 +56,21 @@ namespace OSharp.Core.Packs
             {
                 packType = GetType();
             }
-            DependsOnPacksAttribute[] dependAttrs = packType.GetAttributes<DependsOnPacksAttribute>();
+            var dependAttrs = packType.GetAttributes<DependsOnPacksAttribute>();
             if (dependAttrs.Length == 0)
             {
                 return new Type[0];
             }
-            List<Type> dependTypes = new List<Type>();
-            foreach (DependsOnPacksAttribute dependAttr in dependAttrs)
+            var dependTypes = new List<Type>();
+            foreach (var dependAttr in dependAttrs)
             {
-                Type[] packTypes = dependAttr.DependedPackTypes;
+                var packTypes = dependAttr.DependedPackTypes;
                 if (packTypes.Length == 0)
                 {
                     continue;
                 }
                 dependTypes.AddRange(packTypes);
-                foreach (Type type in packTypes)
+                foreach (var type in packTypes)
                 {
                     dependTypes.AddRange(GetDependPackTypes(type));
                 }

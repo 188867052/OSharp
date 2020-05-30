@@ -1,25 +1,9 @@
-﻿// -----------------------------------------------------------------------
-//  <copyright file="RedisPackCore.cs" company="OSharp开源团队">
-//      Copyright (c) 2014-2018 OSharp. All rights reserved.
-//  </copyright>
-//  <site>http://www.osharp.org</site>
-//  <last-editor>郭明锋</last-editor>
-//  <last-date>2018-12-14 16:25</last-date>
-// -----------------------------------------------------------------------
-
-using System;
-
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-
 using OSharp.Core.Packs;
 using OSharp.Exceptions;
 using OSharp.Extensions;
-
-using StackExchange.Redis;
-
 
 namespace OSharp.Redis
 {
@@ -40,8 +24,7 @@ namespace OSharp.Redis
         /// <returns></returns>
         public override IServiceCollection AddServices(IServiceCollection services)
         {
-            IConfiguration configuration = services.GetConfiguration();
-
+            var configuration = services.GetConfiguration();
             string config = configuration["OSharp:Redis:Configuration"];
             if (config.IsNullOrEmpty())
             {
@@ -53,7 +36,7 @@ namespace OSharp.Redis
             services.AddStackExchangeRedisCache(opts =>
             {
                 opts.Configuration = config;
-                opts.InstanceName = name;
+                opts.InstanceName = configuration["OSharp:Redis:InstanceName"].CastTo("RedisName");
             });
 
             return services;

@@ -51,7 +51,7 @@ namespace OSharp.Redis
         /// <param name="value">保存的值</param>
         /// <param name="expiry">过期时间</param>
         /// <returns></returns>
-        public bool StringSet(string key, string value, TimeSpan? expiry = default(TimeSpan?))
+        public bool StringSet(string key, string value, TimeSpan? expiry = default)
         {
             key = AddKeyPrefix(key);
             return Do(db => db.StringSet(key, value, expiry));
@@ -77,7 +77,7 @@ namespace OSharp.Redis
         /// <param name="obj"></param>
         /// <param name="expiry"></param>
         /// <returns></returns>
-        public bool StringSet<T>(string key, T obj, TimeSpan? expiry = default(TimeSpan?))
+        public bool StringSet<T>(string key, T obj, TimeSpan? expiry = default)
         {
             key = AddKeyPrefix(key);
             string json = ConvertJson(obj);
@@ -153,7 +153,7 @@ namespace OSharp.Redis
         /// <param name="value">保存的值</param>
         /// <param name="expiry">过期时间</param>
         /// <returns></returns>
-        public async Task<bool> StringSetAsync(string key, string value, TimeSpan? expiry = default(TimeSpan?))
+        public async Task<bool> StringSetAsync(string key, string value, TimeSpan? expiry = default)
         {
             key = AddKeyPrefix(key);
             return await Do(db => db.StringSetAsync(key, value, expiry));
@@ -179,7 +179,7 @@ namespace OSharp.Redis
         /// <param name="obj"></param>
         /// <param name="expiry"></param>
         /// <returns></returns>
-        public async Task<bool> StringSetAsync<T>(string key, T obj, TimeSpan? expiry = default(TimeSpan?))
+        public async Task<bool> StringSetAsync<T>(string key, T obj, TimeSpan? expiry = default)
         {
             key = AddKeyPrefix(key);
             string json = ConvertJson(obj);
@@ -889,7 +889,7 @@ namespace OSharp.Redis
         /// <param name="key">redis key</param>
         /// <param name="expiry"></param>
         /// <returns></returns>
-        public bool KeyExpire(string key, TimeSpan? expiry = default(TimeSpan?))
+        public bool KeyExpire(string key, TimeSpan? expiry = default)
         {
             key = AddKeyPrefix(key);
             return Do(db => db.KeyExpire(key, expiry));
@@ -1152,7 +1152,7 @@ namespace OSharp.Redis
         {
             if (value == RedisValue.Null)
             {
-                return default(T);
+                return default;
             }
             if (typeof(T) == typeof(string))
             {
