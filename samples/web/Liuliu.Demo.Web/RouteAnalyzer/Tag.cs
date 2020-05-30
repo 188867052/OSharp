@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Liuliu.Demo.Web
 {
-    internal static class HtmlContent
+    internal static class Tag
     {
         internal static string ToHtml(IHtmlContent content)
         {
@@ -15,14 +15,14 @@ namespace Liuliu.Demo.Web
             return writer.ToString();
         }
 
-        internal static TagHelperOutput TagHelper(string tagName, TagHelperAttributeList attributes)
+        internal static TagHelperOutput Create(string tagName, TagHelperAttributeList attributes)
         {
             return new TagHelperOutput(tagName,
                                        attributes,
                                        getChildContentAsync: (useCachedResult, encoder) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
         }
 
-        internal static TagHelperOutput TagHelper(string tagName, params IHtmlContent[] htmlContent)
+        internal static TagHelperOutput Create(string tagName, params IHtmlContent[] htmlContent)
         {
             var tagHelperOutput = new TagHelperOutput(tagName,
                                        new TagHelperAttributeList(),
@@ -31,14 +31,14 @@ namespace Liuliu.Demo.Web
             return tagHelperOutput.AppendHtml(htmlContent);
         }
 
-        internal static TagHelperOutput TagHelper(string tagName)
+        internal static TagHelperOutput Create(string tagName)
         {
             return new TagHelperOutput(tagName,
                                        new TagHelperAttributeList(),
                                        getChildContentAsync: (useCachedResult, encoder) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
         }
 
-        internal static TagHelperOutput TagHelper(string tagName, TagHelperAttributeList attributes, params string[] content)
+        internal static TagHelperOutput Create(string tagName, TagHelperAttributeList attributes, params string[] content)
         {
             TagHelperOutput tagHelperOutput = new TagHelperOutput(tagName,
                                                                   attributes,
@@ -46,7 +46,7 @@ namespace Liuliu.Demo.Web
             return tagHelperOutput.AppendHtml(content);
         }
 
-        internal static TagHelperOutput TagHelper(string tagName, TagHelperAttribute attribute, string content)
+        internal static TagHelperOutput Create(string tagName, TagHelperAttribute attribute, string content)
         {
             TagHelperOutput tagHelperOutput = new TagHelperOutput(tagName,
                                                                   new TagHelperAttributeList { attribute },
@@ -54,7 +54,7 @@ namespace Liuliu.Demo.Web
             return tagHelperOutput.AppendHtml(content);
         }
 
-        internal static TagHelperOutput TagHelper(string tagName, string content)
+        internal static TagHelperOutput Create(string tagName, string content)
         {
             TagHelperOutput tagHelperOutput = new TagHelperOutput(tagName,
                                                                   new TagHelperAttributeList(),
@@ -62,7 +62,7 @@ namespace Liuliu.Demo.Web
             return tagHelperOutput.AppendHtml(content);
         }
 
-        internal static TagHelperOutput TagHelper(string tagName, TagHelperAttributeList attributes, params IHtmlContent[] htmlContent)
+        internal static TagHelperOutput Create(string tagName, TagHelperAttributeList attributes, params IHtmlContent[] htmlContent)
         {
             TagHelperOutput tagHelperOutput = new TagHelperOutput(tagName,
                                                                   attributes,
@@ -70,7 +70,7 @@ namespace Liuliu.Demo.Web
             return tagHelperOutput.AppendHtml(htmlContent);
         }
 
-        internal static TagHelperOutput TagHelper(string tagName, TagHelperAttribute attribute, params IHtmlContent[] htmlContent)
+        internal static TagHelperOutput Create(string tagName, TagHelperAttribute attribute, params IHtmlContent[] htmlContent)
         {
             TagHelperOutput tagHelperOutput = new TagHelperOutput(tagName,
                                                                   new TagHelperAttributeList { attribute },
