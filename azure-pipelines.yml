@@ -12,6 +12,13 @@ pool:
 steps:
 
 - task: DotNetCoreCLI@2
+  displayName: website-test
+  inputs:
+    command: 'test'
+    arguments: '.\tests\Liuliu.Demo.Core.Tests'
+    testRunTitle: 'website-test'
+
+- task: DotNetCoreCLI@2
   displayName: DotNetCore publish
   inputs:
     command: 'publish'
