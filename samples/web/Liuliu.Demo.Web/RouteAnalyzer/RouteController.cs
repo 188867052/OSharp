@@ -78,7 +78,7 @@ namespace Liuliu.Demo.Web
                 tr.Content.AppendHtml(Tag.Create("td", item.Area));
                 tr.Content.AppendHtml(Tag.Create("td", item.ControllerName));
                 tr.Content.AppendHtml(Tag.Create("td", item.ActionName));
-                tr.Content.AppendHtml(Tag.Create("td", string.Join("<br>", item.Parameters.Select(o => $"{o.Name}({o.Type})"))));
+                tr.Content.AppendHtml(Tag.Create("td", string.Join("<br>", item.Parameters.Select(o => $"{o.Type}&nbsp;&nbsp;&nbsp;{o.Name}"))));
                 tr.Content.AppendHtml(Tag.Create("td", item.Namespace));
                 tbody.Content.AppendHtml(tr);
             }
