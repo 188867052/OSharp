@@ -7,7 +7,7 @@ RUN sudo apt-get install -y --no-install-recommends libgdiplus libc6-dev
 
 sudo docker pull 542153354/api:v1.0 
 
-containerId="` sudo docker ps | grep "8081->80" | awk  '{print $1}' `"
+containerId="`sudo docker ps | grep "8081->80" | awk  '{print $1}'`"
 echo "containerId:$containerId"
 if [ -n "$containerId" ]
 then

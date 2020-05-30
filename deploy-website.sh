@@ -1,5 +1,7 @@
 #!/bin/bash
 
+exit
+
 sudo docker pull 542153354/web:v1.0 
 
 containerId="` sudo docker ps | grep "4201->4201" | awk  '{print $1}' `"

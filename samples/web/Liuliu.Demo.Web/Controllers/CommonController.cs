@@ -74,7 +74,7 @@ namespace Liuliu.Demo.Web.Controllers
             }
             catch (Exception ex)
             {
-                return ex.Message + ex.StackTrace;
+                return ex.Message + ex.StackTrace + ex.InnerException?.Message;
             }
         }
 
