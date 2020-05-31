@@ -60,7 +60,7 @@ export class UserComponent extends STComponentBase implements OnInit {
   protected GetSFSchema(): SFSchema {
     let schema: SFSchema = {
       properties: this.ColumnsToSchemas(this.columns),
-      required: ['UserName','NickName', 'Email']
+      required: ['UserName', 'NickName', 'Email','PhoneNumber']
     };
     return schema;
   }
