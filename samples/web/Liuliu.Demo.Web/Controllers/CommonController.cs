@@ -50,16 +50,6 @@ namespace Liuliu.Demo.Web.Controllers
         }
 
         /// <summary>
-        /// 获取Guid
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public Guid GetGuid()
-        {
-            return Guid.NewGuid();
-        }
-
-        /// <summary>
         /// 获取验证码图片
         /// </summary>
         /// <returns>验证码图片文件</returns>
