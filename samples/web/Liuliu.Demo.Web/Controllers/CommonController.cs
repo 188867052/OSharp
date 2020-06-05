@@ -49,6 +49,12 @@ namespace Liuliu.Demo.Web.Controllers
             _environment = environment;
         }
 
+        [HttpGet]
+        public Guid GetGuid()
+        {
+            return Guid.NewGuid();
+        }
+
         /// <summary>
         /// 获取验证码图片
         /// </summary>
