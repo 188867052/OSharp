@@ -11,6 +11,10 @@
     <DocumentationFile>.\Liuliu.Demo.Web.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>.\Liuliu.Demo.Web.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="log\**" />
     <Content Remove="log\**" />
